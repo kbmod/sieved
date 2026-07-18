@@ -1,6 +1,6 @@
-# Trash Compactor
+# Sieved
 
-Trash Compactor is a local-only Chrome extension that removes YouTube discovery cards
+Sieved is a local-only Chrome extension that removes YouTube discovery cards
 for the content-factory trend built around buying or testing sensationally bad,
 cheap, or extreme products from large online retailers.
 
@@ -36,5 +36,5 @@ Useful commands:
 ## Privacy
 
 Classification happens entirely in the browser from metadata already rendered
-by YouTube. Trash Compactor makes no network requests, performs no telemetry, and does
+by YouTube. Sieved makes no network requests, performs no telemetry, and does
 not inspect image pixels or send browsing information to a remote classifier.

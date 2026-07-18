@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Trash Compactor",
+  "name": "Sieved",
   "description": "Hide YouTube content-factory videos about buying sensational products from major retailers.",
   "version": "0.1.0",
   "permissions": ["activeTab", "storage"],
@@ -13,7 +13,7 @@
     "type": "module"
   },
   "action": {
-    "default_title": "Trash Compactor",
+    "default_title": "Sieved",
     "default_popup": "popup.html"
   },
   "options_page": "options.html",

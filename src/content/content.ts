@@ -4,8 +4,8 @@ import { loadSettings, STORAGE_KEY } from "../shared/settings";
 import type { CurrentChannel, SettingsV1 } from "../shared/types";
 import { detectCurrentChannel, extractCandidate, findRendererRoots } from "./candidates";
 
-const HIDDEN_ATTRIBUTE = "data-trash-compactor-hidden";
-const REASON_ATTRIBUTE = "data-trash-compactor-reason";
+const HIDDEN_ATTRIBUTE = "data-sieved-hidden";
+const REASON_ATTRIBUTE = "data-sieved-reason";
 
 let settings: SettingsV1;
 let routeKey = currentRouteKey();
