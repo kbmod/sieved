@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trash Compactor settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">TRASH COMPACTOR</p>
+        <h1>Filter settings</h1>
+        <p>Rules are matched locally against video metadata already shown by YouTube.</p>
+      </header>
+
+      <section>
+        <h2>Retailers</h2>
+        <p class="hint">Most matches must mention one of these retailers; high-confidence generic purchase titles are also filtered.</p>
+        <div id="retailer-rules" class="checks"></div>
+        <form id="add-retailer" class="add-form">
+          <input id="retailer-input" aria-label="Custom retailer" placeholder="Add a retailer or alias" required />
+          <button>Add</button>
+        </form>
+        <div id="custom-retailers" class="chips"></div>
+      </section>
+
+      <section>
+        <h2>Sensational triggers</h2>
+        <p class="hint">A video must also contain an enabled trigger and purchase, test, or retailer-offer framing.</p>
+        <div id="trigger-rules" class="checks"></div>
+        <form id="add-trigger" class="add-form">
+          <input id="trigger-input" aria-label="Custom trigger" placeholder="Add a trigger phrase" required />
+          <button>Add</button>
+        </form>
+        <div id="custom-triggers" class="chips"></div>
+      </section>
+
+      <section>
+        <h2>Allowed channels</h2>
+        <p class="hint">Add a channel URL, @handle, channel ID, or exact display name.</p>
+        <form id="add-channel" class="add-form">
+          <input id="channel-input" aria-label="Allowed channel" placeholder="youtube.com/@channel" required />
+          <button>Add</button>
+        </form>
+        <div id="allowed-channels" class="chips stacked"></div>
+      </section>
+
+      <footer>
+        <button id="reset" class="danger">Restore defaults</button>
+        <span id="save-status" role="status"></span>
+      </footer>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

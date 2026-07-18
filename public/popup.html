@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trash Compactor</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <div class="brand-row">
+        <div>
+          <h1>Trash Compactor</h1>
+          <p class="tagline">Less factory-made noise.</p>
+        </div>
+        <label class="switch" aria-label="Enable Trash Compactor">
+          <input id="enabled" type="checkbox" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <section class="count-card" aria-live="polite">
+        <strong id="hidden-count">0</strong>
+        <span>cards hidden on this page</span>
+      </section>
+
+      <button id="allow-channel" class="secondary" hidden></button>
+      <button id="more-settings" class="primary">More settings</button>
+      <p id="page-message" class="message"></p>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
