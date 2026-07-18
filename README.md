@@ -32,9 +32,19 @@ Useful commands:
 - `npm run typecheck` checks TypeScript without emitting files.
 - `npm test` runs the classifier and DOM extraction tests.
 - `npm run verify` runs type checking, tests, and a production build.
+- `npm run release` verifies the extension, creates a source-map-free production
+  build, and packages it as `release/sieved-<version>.zip` for Web Store upload.
 
 ## Privacy
 
 Classification happens entirely in the browser from metadata already rendered
 by YouTube. Sieved makes no network requests, performs no telemetry, and does
 not inspect image pixels or send browsing information to a remote classifier.
+See the full [privacy policy](PRIVACY.md) for data-access and Chrome sync details.
+
+## Chrome Web Store
+
+Submission copy and permission justifications are in
+[`store-listing/STORE_LISTING.md`](store-listing/STORE_LISTING.md). Follow
+[`SUBMISSION_CHECKLIST.md`](SUBMISSION_CHECKLIST.md) to build, test, and submit a
+release.

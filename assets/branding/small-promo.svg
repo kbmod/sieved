@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 280">
+  <rect width="440" height="280" fill="#11130f"/>
+  <circle cx="92" cy="140" r="62" fill="#24291f"/>
+  <path d="M52 118h82c-2 31-17 50-41 50s-39-19-41-50Z" fill="#f6f7f1"/>
+  <rect x="49" y="109" width="88" height="18" rx="9" fill="#b8f25b"/>
+  <polygon points="121,148 156,171 148,184 113,161" fill="#f6f7f1"/>
+  <g fill="#527b19"><circle cx="72" cy="140" r="4"/><circle cx="92" cy="140" r="4"/><circle cx="112" cy="140" r="4"/></g>
+  <text x="178" y="128" fill="#f6f7f1" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700">Sieved</text>
+  <text x="180" y="158" fill="#b8f25b" font-family="Arial, Helvetica, sans-serif" font-size="16">Less factory-made noise.</text>
+</svg>

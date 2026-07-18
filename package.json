@@ -1,10 +1,12 @@
 {
   "name": "sieved",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
+    "build:release": "node scripts/build.mjs --release",
+    "release": "npm run typecheck && npm test && npm run build:release && node scripts/package.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
