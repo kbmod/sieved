@@ -1,8 +1,14 @@
 import { cloneDefaults, DEFAULT_SETTINGS } from "./defaults";
 import { normalizeChannelIdentifier, normalizeTerm } from "./normalize";
 import type { BuiltInRule, SettingsV1 } from "./types";
+import { isFirefox, webext } from "./webext";
 
 export const STORAGE_KEY = "settings";
+export const STORAGE_AREA: "local" | "sync" = isFirefox ? "local" : "sync";
+
+function settingsStorage(): chrome.storage.StorageArea {
+  return webext.storage[STORAGE_AREA];
+}
 
 function mergeRules(value: unknown, defaults: BuiltInRule[]): BuiltInRule[] {
   const stored = Array.isArray(value) ? value : [];
@@ -37,12 +43,12 @@ export function sanitizeSettings(value: unknown): SettingsV1 {
 }
 
 export async function loadSettings(): Promise<SettingsV1> {
-  const stored = await chrome.storage.sync.get(STORAGE_KEY);
+  const stored = await settingsStorage().get(STORAGE_KEY);
   return sanitizeSettings(stored[STORAGE_KEY]);
 }
 
 export async function saveSettings(settings: SettingsV1): Promise<SettingsV1> {
   const clean = sanitizeSettings(settings);
-  await chrome.storage.sync.set({ [STORAGE_KEY]: clean });
+  await settingsStorage().set({ [STORAGE_KEY]: clean });
   return clean;
 }

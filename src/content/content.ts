@@ -1,7 +1,8 @@
 import { classifyCandidate } from "../shared/classifier";
 import { isRuntimeMessage } from "../shared/messages";
-import { loadSettings, STORAGE_KEY } from "../shared/settings";
+import { loadSettings, STORAGE_AREA, STORAGE_KEY } from "../shared/settings";
 import type { CurrentChannel, SettingsV1 } from "../shared/types";
+import { webext } from "../shared/webext";
 import { detectCurrentChannel, extractCandidate, findRendererRoots } from "./candidates";
 
 const HIDDEN_ATTRIBUTE = "data-sieved-hidden";
@@ -68,7 +69,7 @@ function publishState(): void {
   if (count === lastCount && channelIdentifier === lastChannelIdentifier) return;
   lastCount = count;
   lastChannelIdentifier = channelIdentifier;
-  void chrome.runtime.sendMessage({ type: "CONTENT_STATE", count, routeKey, currentChannel }).catch(() => undefined);
+  void webext.runtime.sendMessage({ type: "CONTENT_STATE", count, routeKey, currentChannel }).catch(() => undefined);
 }
 
 async function refreshSettings(): Promise<void> {
@@ -95,11 +96,11 @@ async function start(): Promise<void> {
     window.addEventListener(eventName, () => scheduleScan(0));
   }
 
-  chrome.storage.onChanged.addListener((changes, areaName) => {
-    if (areaName === "sync" && STORAGE_KEY in changes) void refreshSettings();
+  webext.storage.onChanged.addListener((changes, areaName) => {
+    if (areaName === STORAGE_AREA && STORAGE_KEY in changes) void refreshSettings();
   });
 
-  chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+  webext.runtime.onMessage.addListener((message, _sender, sendResponse) => {
     if (!isRuntimeMessage(message) || message.type !== "GET_CONTENT_CONTEXT") return;
     sendResponse({ count: lastCount < 0 ? 0 : lastCount, routeKey, currentChannel: detectCurrentChannel() });
   });

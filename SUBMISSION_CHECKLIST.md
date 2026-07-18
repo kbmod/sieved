@@ -17,12 +17,12 @@
       channel pages, playlists, Shorts shelves, and watch recommendations.
 - [ ] Confirm the popup, enable toggle, hidden count, settings page, custom terms,
       channel allowlisting, and restore-defaults action work.
-- [ ] Inspect `release/sieved-1.0.0.zip`; `manifest.json` must be at the ZIP root
+- [ ] Inspect `release/sieved-1.0.1.zip`; `manifest.json` must be at the ZIP root
       and the archive must not contain source maps, tests, or development files.
 
 ## Dashboard
 
-- [ ] Upload `release/sieved-1.0.0.zip` as a new item.
+- [ ] Upload `release/sieved-1.0.1.zip` as a new item.
 - [ ] Paste the product details and detailed description from the store listing.
 - [ ] Upload the 128 px icon, 1280 x 800 screenshot, and 440 x 280 small promo.
 - [ ] Record and upload the short demo outlined in

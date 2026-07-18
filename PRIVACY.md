@@ -2,7 +2,7 @@
 
 Effective date: July 18, 2026
 
-Sieved is a Chrome extension that filters repetitive YouTube video cards. Its
+Sieved is a browser extension that filters repetitive YouTube video cards. Its
 classification runs locally in the browser. The developer does not collect,
 receive, sell, share, or use personal data from the extension.
 
@@ -17,7 +17,8 @@ allowlist features:
 - When its toolbar popup is opened, it reads the active tab address to determine
   whether the tab is a YouTube page and to show filtering activity for that tab.
 - It stores the enabled state, retailer and trigger choices, custom filter terms,
-  and allowed channel identifiers with `chrome.storage.sync`.
+  and allowed channel identifiers. Chrome builds use `chrome.storage.sync`;
+  Firefox builds use local extension storage and do not sync those settings.
 
 Sieved does not inspect thumbnail image pixels. It makes no analytics,
 advertising, telemetry, or other remote network requests, and it does not retain
@@ -26,6 +27,8 @@ a history of visited videos or pages.
 Chrome may sync extension settings through the user's signed-in Google account
 as part of the `chrome.storage.sync` service. That syncing is provided by Chrome,
 not by Sieved or its developer, and is governed by Google's privacy policies.
+Firefox settings remain in Firefox's local extension storage and are not sent
+through Mozilla Sync by Sieved.
 
 ## Permissions
 
@@ -34,13 +37,15 @@ not by Sieved or its developer, and is governed by Google's privacy policies.
 - **Active tab** lets the toolbar popup confirm that the current tab is YouTube,
   display that tab's hidden-card count, and offer a channel allowlist action.
 - **Storage** saves filter preferences and allowed channels across browser
-  sessions and, when Chrome sync is enabled, across the user's Chrome browsers.
+  sessions. Chrome may sync them when Chrome sync is enabled; Firefox keeps them
+  local to that Firefox installation.
 
 ## Control and deletion
 
 Users can restore default settings from Sieved's settings page. Users can also
 remove all extension settings by uninstalling Sieved; Chrome may separately
 retain or synchronize settings according to the user's Chrome sync configuration.
+Firefox's locally stored Sieved settings are removed with the extension.
 
 ## Limited Use
 

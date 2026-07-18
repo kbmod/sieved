@@ -1,0 +1,21 @@
+**Sieved clears repetitive retailer-purchase videos from YouTube discovery surfaces.** It identifies videos framed around buying or testing the cheapest, worst, strangest, or otherwise sensational products, then hides their cards so you can spend less time sorting through factory-made noise.
+
+**Where it works**
+
+Filtering covers YouTube Home, Search, Subscriptions, channel pages, featured videos, pinned playlists, playlist pages, Shorts shelves, and watch-page recommendations. Videos you open directly are not blocked.
+
+**You control the filter**
+
+- Enable or disable built-in retailers and trigger phrases
+- Add your own retailer names, aliases, and trigger phrases
+- Allowlist channels you still want to see
+- View how many cards Sieved has hidden on the current page
+- Turn filtering off at any time from the toolbar popup
+
+**Private by design**
+
+All matching happens locally using video titles and channel metadata already displayed by YouTube. Sieved makes no remote requests, includes no advertising or telemetry, does not inspect thumbnail images, and does not send browsing information to its developer or third parties. Firefox settings remain in local extension storage.
+
+Need help or want to report a missed pattern? Visit the [Sieved support tracker](https://github.com/kbmod/sieved/issues).
+
+Sieved is an independent extension and is not affiliated with YouTube, Google, Amazon, Temu, Walmart, AliExpress, Shein, Facebook, or Meta.

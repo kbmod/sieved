@@ -1,22 +1,31 @@
 {
   "name": "sieved",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
+  "license": "MPL-2.0",
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
+    "build:firefox": "node scripts/build.mjs --target=firefox",
+    "build:firefox:release": "node scripts/build.mjs --target=firefox --release",
     "build:release": "node scripts/build.mjs --release",
+    "lint:firefox": "web-ext lint --source-dir dist-firefox",
+    "release:firefox": "npm run typecheck && npm test && npm run build:firefox:release && npm run lint:firefox && node scripts/package-firefox.mjs",
     "release": "npm run typecheck && npm test && npm run build:release && node scripts/package.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "verify": "npm run typecheck && npm test && npm run build"
   },
+  "overrides": {
+    "adm-zip": "^0.6.0"
+  },
   "devDependencies": {
     "@types/chrome": "^0.0.320",
     "esbuild": "^0.25.5",
     "jsdom": "^26.1.0",
     "typescript": "^5.8.3",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "web-ext": "^10.5.0"
   }
 }

@@ -1,0 +1,12 @@
+PRIVACY POLICY
+Sieved performs all filtering locally. The developer does not collect, receive, sell, or share personal data. The extension reads YouTube video and channel information displayed in the browser and stores filter preferences locally using browser.storage.local. It makes no remote requests and includes no analytics, telemetry, advertising, or tracking. Uninstalling Sieved removes its locally stored settings. Full policy: https://github.com/kbmod/sieved/blob/main/PRIVACY.md
+NOTES TO REVIEWER
+Sieved requires no account or credentials and runs only on YouTube. It contains no remote code, telemetry, advertising, or tracking.
+To reproduce version 1.0.1 from the reviewer source archive, using Node.js 20 or later and npm 9 or later, run the following commands from the root of the extracted archive:
+npm ci
+npm run typecheck
+npm test
+npm run build:firefox:release
+npm run lint:firefox
+node scripts/package-firefox.mjs
+The resulting add-on is release/sieved-firefox-1.0.1.zip. Complete build details are included in FIREFOX_BUILD.md.

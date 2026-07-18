@@ -1,5 +1,6 @@
 import { loadSettings, saveSettings } from "../shared/settings";
 import type { TabState } from "../shared/types";
+import { webext } from "../shared/webext";
 
 const enabledInput = document.querySelector<HTMLInputElement>("#enabled")!;
 const hiddenCount = document.querySelector<HTMLElement>("#hidden-count")!;
@@ -8,7 +9,7 @@ const moreSettings = document.querySelector<HTMLButtonElement>("#more-settings")
 const pageMessage = document.querySelector<HTMLElement>("#page-message")!;
 
 async function activeTab(): Promise<chrome.tabs.Tab | undefined> {
-  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  const [tab] = await webext.tabs.query({ active: true, currentWindow: true });
   return tab;
 }
 
@@ -21,9 +22,9 @@ async function init(): Promise<void> {
     return;
   }
 
-  let state: TabState = await chrome.runtime.sendMessage({ type: "GET_TAB_STATE", tabId: tab.id });
+  let state: TabState = await webext.runtime.sendMessage({ type: "GET_TAB_STATE", tabId: tab.id });
   try {
-    state = await chrome.tabs.sendMessage(tab.id, { type: "GET_CONTENT_CONTEXT" });
+    state = await webext.tabs.sendMessage(tab.id, { type: "GET_CONTENT_CONTEXT" });
   } catch {
     // The tab may predate extension installation; the service-worker state is still useful.
   }
@@ -49,6 +50,6 @@ enabledInput.addEventListener("change", async () => {
   pageMessage.textContent = settings.enabled ? "Filtering enabled." : "Filtering disabled.";
 });
 
-moreSettings.addEventListener("click", () => void chrome.runtime.openOptionsPage());
+moreSettings.addEventListener("click", () => void webext.runtime.openOptionsPage());
 
 void init();

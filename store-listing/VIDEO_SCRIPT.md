@@ -18,7 +18,7 @@ and consistent with the submitted extension.
 
 Suggested title: **Sieved for Chrome - filter repetitive YouTube videos**
 
-Suggested description: **A short demonstration of Sieved 1.0.0. Sieved filters
+Suggested description: **A short demonstration of Sieved 1.0.1. Sieved filters
 matching YouTube discovery cards locally using user-configurable rules.**
 
 Use the same icon and colors as the store assets. Avoid claims that every

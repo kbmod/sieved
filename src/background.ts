@@ -1,14 +1,15 @@
 import { isRuntimeMessage } from "./shared/messages";
 import type { TabState } from "./shared/types";
+import { webext } from "./shared/webext";
 
 const tabStates = new Map<number, TabState>();
 
 function updateBadge(tabId: number, count: number): void {
-  void chrome.action.setBadgeBackgroundColor({ tabId, color: "#6f9f28" });
-  void chrome.action.setBadgeText({ tabId, text: count > 0 ? (count > 999 ? "999+" : String(count)) : "" });
+  void webext.action.setBadgeBackgroundColor({ tabId, color: "#6f9f28" });
+  void webext.action.setBadgeText({ tabId, text: count > 0 ? (count > 999 ? "999+" : String(count)) : "" });
 }
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+webext.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (!isRuntimeMessage(message)) return;
 
   if (message.type === "CONTENT_STATE" && sender.tab?.id !== undefined) {
@@ -27,4 +28,4 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 });
 
-chrome.tabs.onRemoved.addListener((tabId) => tabStates.delete(tabId));
+webext.tabs.onRemoved.addListener((tabId) => tabStates.delete(tabId));
